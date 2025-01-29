@@ -2,7 +2,7 @@ package Controller;
 
 public class GameController {
     public void startGame(){
-    i;
+
     }
 
     public void makeMove(){
