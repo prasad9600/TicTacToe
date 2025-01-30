@@ -1,27 +1,47 @@
 package Controller;
 
+import exceptions.DuplicateBotFoundException;
+import exceptions.DuplicateSymbolException;
+import exceptions.PlayerCountException;
+import models.Game;
+import models.GameState;
+import models.Player;
+import strategies.WinningStrategy;
+
+import java.util.List;
+
 public class GameController {
-    public void startGame(){
+
+        public Game startGame(List< Player> players,
+        int size, List<WinningStrategy> winningStrategies) throws PlayerCountException, DuplicateSymbolException, DuplicateBotFoundException {
+
+
+        return Game.getBuilder()
+                .setPlayers(players)
+                .setWinningStrategies(winningStrategies)
+                .setSize(size)
+                .build();
+
 
     }
 
-    public void makeMove(){
-
+    public void makeMove(Game game){
+        game.makeMove();
     }
 
-    public void checkStatus(){
-
+    public GameState checkStatus(Game game){
+        return game.getGameState();
     }
 
-    public void printBoard(){
-
+    public void printBoard(Game game){
+        game.printBoard();
     }
 
-    public void getWinner(){
-
+    public Player getWinner(Game game){
+        return game.getWinner();
     }
 
-    public void undo(){
-
+    public void undo(Game game){
+        game.undo();
     }
 }
