@@ -1,15 +1,12 @@
 package strategies;
 
-import models.Board;
-import models.Cell;
-import models.CellState;
-import models.Move;
+import models.*;
 
 import java.util.List;
 
 public class EasyBotPlayingStrategy implements BotPlayingStrategy{
     @Override
-    public Move makeMove(Board board) {
+    public Move makeMove(Board board, Bot bot) {
             for(List<Cell> row: board.getBoard()) {
                 for(Cell cell: row) {
                     if(cell.getCellState().equals(CellState.EMPTY)) {
@@ -19,6 +16,6 @@ public class EasyBotPlayingStrategy implements BotPlayingStrategy{
             }
 
             return null;
-        }
+    }
 
 }
